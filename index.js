@@ -15,7 +15,7 @@ const connectButton = document.getElementById("connectButton");
 connectButton.addEventListener("click", async () => {
   try {
     // Request user to connect their wallet
-    await window.ethereum.enable();
+    await window.ethereum.request({ method: 'eth_requestAccounts' });
     console.log("Connected to wallet and transaction confirmed");
 
     // Get user's connected wallet

